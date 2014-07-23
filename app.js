@@ -1,3 +1,4 @@
+/*jshint node:true, strict:false*/
 var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
@@ -12,7 +13,8 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, ''));
-app.set('view engine', 'jade');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
 app.use(favicon());
 app.use(logger('dev'));
