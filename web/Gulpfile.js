@@ -6,17 +6,20 @@ var chalk = require('chalk')
 var clean = require('gulp-clean')
 var ignore = require('gulp-ignore')
 var changed = require('gulp-changed')
+var package = require('./package.json')
+var include = require('gulp-file-include')
 
 
 var myPaths = {
     src: './src/',
     dist: './dist/',
     jade: './src/*.jade',
+    html: './src/*.html',
     copy: './src/static/**',
 }
 
 gulp.task('clean', function (done) {
-    gulp.src(myPaths.dist + '**/*.*', {read: false})
+    gulp.src(myPaths.dist + '**/*{.*}', {read: false})
         .pipe(clean())
     done()
 });
@@ -24,9 +27,19 @@ gulp.task('clean', function (done) {
 gulp.task('jade2html', function () {
     gulp.src(myPaths.jade)
         .pipe(changed(myPaths.dist))
-        .pipe(jade())
+        .pipe(jade({
+            locals: package
+        }))
         .pipe(gulp.dest(myPaths.dist))
 });
+
+gulp.task('html-include', function () {
+    gulp.src(myPaths.html)
+        .pipe(changed(myPaths.dist))
+        .pipe(include())
+        .pipe(gulp.dest(myPaths.dist))
+});
+
 gulp.task('copy', function () {
     gulp.src(myPaths.copy, {base: myPaths.src})
         .pipe(changed(myPaths.dist))
@@ -38,7 +51,7 @@ gulp.task('watch', function () {
     gulp.watch([myPaths.jade], ['jade2html'])
 });
 
-gulp.task('debug', ['clean', 'copy', 'jade2html', 'watch'], function () {
+gulp.task('debug', ['clean', 'copy', 'html-include', 'watch'], function () {
     console.info(chalk.black.bgWhite.bold('You can debug now!'))
 })
 

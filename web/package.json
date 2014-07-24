@@ -1,33 +1,34 @@
 {
-  "scripts": {
-    "debug": "gulp debug",
-    "postinstall": "gulp build",
-    "styleguide": "kss-node chrome-app/styles/ --less chrome-app/styles/_styleguide.less",
-    "test": "npm test"
-  },
-  "name": "web",
-  "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
-  "author": "",
-  "license": "",
-  "devDependencies": {
-    "browserify": "~4.1.5",
-    "gulp-rename": "~1.2.0",
-    "gulp-newer": "~0.3.0",
-    "gulp-clean": "~0.3.1",
-    "gulp-file-include": "~0.4.0",
-    "gulp-connect": "~2.0.6",
-    "gulp": "~3.8.6",
-    "gulp-less": "~1.3.2",
-    "gulp-browserify": "~0.5.0",
-    "gulp-jade": "~0.6.1",
-    "gulp-ignore": "~1.2.0",
-    "gulp-changed": "~0.4.0",
-    "gulp-remember": "~0.2.0",
-    "gulp-cached": "~1.0.1"
-  },
-  "dependencies": {
-    "chalk": "~0.5.1"
-  }
+    "scripts": {
+        "debug": "gulp debug",
+        "postinstall": "gulp build",
+        "styleguide": "kss-node chrome-app/styles/ --less chrome-app/styles/_styleguide.less",
+        "test": "npm test"
+    },
+    "name": "web",
+    "sitename": "My Web",
+    "version": "0.0.0",
+    "description": "My Web",
+    "main": "index.js",
+    "author": "",
+    "license": "",
+    "devDependencies": {
+        "browserify": "~4.1.5",
+        "gulp-rename": "~1.2.0",
+        "gulp-newer": "~0.3.0",
+        "gulp-clean": "~0.3.1",
+        "gulp-file-include": "~0.4.0",
+        "gulp-connect": "~2.0.6",
+        "gulp": "~3.8.6",
+        "gulp-less": "~1.3.2",
+        "gulp-browserify": "~0.5.0",
+        "gulp-jade": "~0.6.1",
+        "gulp-ignore": "~1.2.0",
+        "gulp-changed": "~0.4.0",
+        "gulp-remember": "~0.2.0",
+        "gulp-cached": "~1.0.1"
+    },
+    "dependencies": {
+        "chalk": "~0.5.1"
+    }
 }
