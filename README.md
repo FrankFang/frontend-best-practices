@@ -1,4 +1,9 @@
-frontend-best-practices
+Frontend Best Practices
 =======================
 
-Frontend best practices
+Workflow
+--------
+
+1. Setup a server to mock the APIs
+2. 
+

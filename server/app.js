@@ -1,4 +1,4 @@
-/*jshint node:true, strict:false*/
+/*jshint node:true, strict:false, asi: true*/
 var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
