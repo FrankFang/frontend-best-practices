@@ -6,12 +6,12 @@ var ignore = require('gulp-ignore')
 var changed = require('gulp-changed')
 var cache = require('gulp-cached')
 var remember = require('gulp-remember')
-var package = require('./package.json')
+var pkg = require('./package.json')
 var include = require('gulp-file-include')
 var extender = require('gulp-html-extend')
 var rimraf = require('gulp-rimraf')
 var plumber = require('gulp-plumber')
-var notify = require("gulp-notify")
+var notify = require('gulp-notify')
 
 
 var myPaths = {
@@ -21,33 +21,31 @@ var myPaths = {
     copy: './src/static/**',
 }
 
-gulp.task('clean', function (done) {
-    gulp.src(myPaths.dist + '**/*')
-        .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+gulp.task('clean', function () {
+    return gulp.src(myPaths.dist + '**/*')
+        .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
         .pipe(rimraf())
-    done()
 })
 
 gulp.task('html-include', function () {
     gulp.src(myPaths.html)
-        .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+        .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
         .pipe(include())
         .pipe(gulp.dest(myPaths.dist))
 })
 
 gulp.task('html-extend', function () {
     gulp.src(myPaths.html)
-        .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+        .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
         .pipe(extender())
         .pipe(gulp.dest(myPaths.dist))
 })
 
-gulp.task('copy', function (done) {
-    gulp.src(myPaths.copy, {base: myPaths.src})
-        .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+gulp.task('copy', function () {
+    return gulp.src(myPaths.copy, {base: myPaths.src})
+        .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
         .pipe(changed(myPaths.dist))
         .pipe(gulp.dest(myPaths.dist))
-    done()
 })
 
 gulp.task('watch', function () {
@@ -58,7 +56,7 @@ gulp.task('watch', function () {
 
 })
 
-gulp.task('debug', ['clean', 'copy', 'html-extend', 'watch'], function () {
+gulp.task('debug', ['copy', 'html-extend', 'watch'], function () {
     console.info(chalk.black.bgWhite.bold('You can debug now!'))
 })
 
