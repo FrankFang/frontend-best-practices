@@ -1,9 +1,9 @@
 {
-  "name": "frontend-best-practices",
+  "name": "server",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "DEBUG=server2 node ./bin/www"
+    "start": "DEBUG=server node ./bin/www"
   },
   "dependencies": {
     "express": "~4.2.0",

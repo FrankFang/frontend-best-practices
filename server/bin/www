@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-var debug = require('debug')('frontend-best-practices');
-var app = require('../server-app');
+var debug = require('debug')('server');
+var app = require('../app');
 
 app.set('port', process.env.PORT || 3000);
 
