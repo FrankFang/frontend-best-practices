@@ -25,5 +25,4 @@ build/Release
 node_modules
 .idea
 .DS_Store
-web/dist
 

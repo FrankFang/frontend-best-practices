@@ -1,0 +1,36 @@
+/*! Created by frank on 14-7-29.  */
+/*! Created by frank on 14-7-29.  */
+.navbar:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.navbar .logo {
+  position: relative;
+  top: -14px;
+}
+.navbar > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  float: right;
+}
+.navbar > ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.navbar > ul > li {
+  float: left;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.navbar > ul:first-child {
+  float: left;
+}
+.navbar > ul > li {
+  height: 64px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  line-height: 32px;
+}

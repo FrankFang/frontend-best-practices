@@ -1,0 +1,15 @@
+/*! Created by frank on 14-7-29.  */
+/*! Created by frank on 14-7-29.  */
+* {
+  box-sizing: border-box;
+}
+.page > header {
+  background: #DDD;
+  position: relative;
+}
+.page > header > nav {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1000px;
+}

@@ -2,14 +2,27 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title><%= title %></title>
-        <link rel="stylesheet" href="/stylesheets/style.css"/>
+<!-- start head -->
+<title><%= title %></title>
+
+<link rel="stylesheet" href="/stylesheets/team/reset.css"/>
+
+<link rel="stylesheet" href="/stylesheets/project/layout.css"/>
+<link rel="stylesheet" href="/stylesheets/project/navbar.css"/>
+
+
+<!-- end head -->
     </head>
     <body>
         <div class="page">
             <header>
-                <nav>
+                <nav class="navbar">
                     <ul>
+                        <li>
+                            <a href="#">
+                                <img src="/images/logo.png" alt="Logo" width="150" height="60" class="logo"/>
+                            </a>
+                        </li>
                         <li>
                             <a href="#">Home</a>
                         </li>
@@ -31,7 +44,10 @@
                 </nav>
             </header>
             <main>
-                 <!-- @@placeholder = content -->
+<!-- start content -->
+<h1><%= title %></h1>
+
+<!-- end content -->
             </main>
             <footer>
                 <a href="#">About Us</a>
