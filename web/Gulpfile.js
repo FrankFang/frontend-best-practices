@@ -12,6 +12,8 @@ var extender = require('gulp-html-extend')
 var rimraf = require('gulp-rimraf')
 var plumber = require('gulp-plumber')
 var notify = require('gulp-notify')
+var newer = require('gulp-newer')
+var less = require('gulp-less')
 
 
 var myPaths = {
@@ -19,6 +21,7 @@ var myPaths = {
     dist: './dist/',
     html: './src/{,masters/}*.html',
     copy: './src/static/**',
+    less: './src/static/**/*.less'
 }
 
 gulp.task('clean', function () {
@@ -26,6 +29,14 @@ gulp.task('clean', function () {
         .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
         .pipe(rimraf())
 })
+
+gulp.task('less2css', function () {
+    gulp.src(myPaths.less)
+        .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+        .pipe(less())
+        .pipe(gulp.dest(myPaths.dist + 'static/'))
+})
+
 
 gulp.task('html-include', function () {
     gulp.src(myPaths.html)
@@ -50,13 +61,13 @@ gulp.task('copy', function () {
 
 gulp.task('watch', function () {
     gulp.watch(myPaths.copy, ['copy'])
-
-    var watcher = gulp.watch(myPaths.html, ['html-extend'])
+    gulp.watch(myPaths.less, ['less2css'])
+    gulp.watch(myPaths.html, ['html-extend'])
 
 
 })
 
-gulp.task('debug', ['copy', 'html-extend', 'watch'], function () {
+gulp.task('debug', ['copy', 'less2css', 'html-extend', 'watch'], function () {
     console.info(chalk.black.bgWhite.bold('You can debug now!'))
 })
 
