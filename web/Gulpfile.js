@@ -14,14 +14,16 @@ var plumber = require('gulp-plumber')
 var notify = require('gulp-notify')
 var newer = require('gulp-newer')
 var less = require('gulp-less')
+var prefix = require('gulp-autoprefixer')
 
 
 var myPaths = {
     src: './src/',
     dist: './dist/',
     html: './src/{,masters/}*.html',
-    copy: './src/static/**',
-    less: './src/static/**/*.less'
+    copy: ['./src/static/*', '!./src/static/stylesheets/'],
+    less: './src/static/**/*.less',
+    css: './src/static/**/*.css'
 }
 
 gulp.task('clean', function () {
@@ -31,9 +33,13 @@ gulp.task('clean', function () {
 })
 
 gulp.task('less2css', function () {
+    gulp.src(myPaths.css)
+        .pipe(prefix('last 1 version', '> 1%', 'ie 8'))
+        .pipe(gulp.dest(myPaths.dist + 'static/'))
     gulp.src(myPaths.less)
         .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
         .pipe(less())
+        .pipe(prefix('last 1 version', '> 1%', 'ie 8'))
         .pipe(gulp.dest(myPaths.dist + 'static/'))
 })
 
@@ -67,7 +73,7 @@ gulp.task('watch', function () {
 
 })
 
-gulp.task('debug', ['copy', 'less2css', 'html-extend', 'watch'], function () {
+gulp.task('debug', [ 'copy', 'less2css', 'html-extend', 'watch'], function () {
     console.info(chalk.black.bgWhite.bold('You can debug now!'))
 })
 

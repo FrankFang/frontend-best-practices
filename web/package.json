@@ -29,7 +29,8 @@
     "gulp-rimraf": "~0.1.0",
     "chalk": "~0.5.1",
     "gulp-plumber": "~0.6.4",
-    "gulp-notify": "~1.4.0"
+    "gulp-notify": "~1.4.0",
+    "gulp-autoprefixer": "0.0.8"
   },
   "dependencies": {}
 }
