@@ -27,9 +27,9 @@ var myPaths = {
 }
 
 gulp.task('clean', function () {
-    return gulp.src(myPaths.dist + '**/*')
+    gulp.src(myPaths.dist)
         .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
-        .pipe(rimraf())
+        .pipe(rimraf({force: false, verbose: true}))
 })
 
 gulp.task('less2css', function () {
