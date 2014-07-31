@@ -1,7 +1,8 @@
 /*! Created by frank on 14-7-29.  */
 /*! Created by frank on 14-7-29.  */
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .page > header {
   background: #DDD;

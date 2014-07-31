@@ -34,12 +34,12 @@ gulp.task('clean', function () {
 
 gulp.task('less2css', function () {
     gulp.src(myPaths.css)
-        .pipe(prefix('last 1 version', '> 1%', 'ie 8'))
+        .pipe(prefix('last 2 version', '> 1%', 'ie 8'))
         .pipe(gulp.dest(myPaths.dist + 'static/'))
     gulp.src(myPaths.less)
         .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
         .pipe(less())
-        .pipe(prefix('last 1 version', '> 1%', 'ie 8'))
+        .pipe(prefix('last 2 version', '> 1%', 'ie 8'))
         .pipe(gulp.dest(myPaths.dist + 'static/'))
 })
 
