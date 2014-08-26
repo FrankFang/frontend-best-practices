@@ -21,7 +21,7 @@ var myPaths = {
     src: './src/',
     dist: './dist/',
     html: './src/{,masters/}*.html',
-    copy: ['./src/static/*', '!./src/static/stylesheets/'],
+    copy: ['./src/static/**'],
     less: './src/static/**/*.less',
     css: './src/static/**/*.css'
 }
